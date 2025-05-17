@@ -1,8 +1,10 @@
-import streamlit as st
 from datetime import datetime
+import streamlit as st
+from time import sleep
 import pytz
 
-# Convert UNIX timestamps to IST
+from src.utils.greeting import GreetUser
+
 def unix_to_ist(timestamp):
   india_tz = pytz.timezone('Asia/Kolkata')
   format_str = '%I:%M:%S %p IST'
@@ -16,15 +18,14 @@ def auth():
       st.login("google")
 
   else:
-    st.title(f"👤 Welcome, {st.user.given_name}")
-    st.image(st.user.picture, caption=st.user.name)
-
-    with st.expander("Login Credentials", expanded=True):
-      st.write("Email:", st.user.email)
-      st.write(f"Session logged in: {unix_to_ist(st.user.iat)}")
-      st.write(f"Session expires at: {unix_to_ist(st.user.exp)}")
+    st.title(f"🙏 {GreetUser(st.user.given_name)}")
+    st.success("Welcome to Jarvis AI Assistant!", icon="🤝")
+    st.image(st.user.picture, caption=st.user.name, use_container_width=100)
+    st.write("Email:", st.user.email)
 
     if st.button("Log out"):
+      st.toast(f"Goodbye, {st.user.name}! See you soon!", icon="🚪")
+      sleep(3)
       st.logout()
 
 auth()
