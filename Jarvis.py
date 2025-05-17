@@ -34,14 +34,12 @@ def application():
     "Account": [auth_page],
   }
 
-  if st.user.is_logged_in:
-    pages = {
-      "": [home, youtubePlaylist],
-      "Account": [auth_page],
+  if st.user and st.user.is_logged_in:
+    pages.update({
       "Automations": [coding, websites, socialMediaApps, messenger],
       "Models": [chatBotModels, healthCareModels, objectDetectionModels, recommendationModels],
       "Programs": [apiPrograms, games, imagePrograms, simplePrograms, studyPrograms],
-    }
+    })
 
   return st.navigation(pages)
 

@@ -25,7 +25,7 @@ def auth():
 
     if st.button("Log out"):
       st.toast(f"Goodbye, {st.user.name}! See you soon!", icon="🚪")
-      sleep(3)
+      sleep(2)
       st.logout()
 
 auth()
