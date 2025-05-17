@@ -29,13 +29,6 @@ imagePrograms = st.Page("src/apps/pages/programs/imageProgram.py", title="Image 
 games = st.Page("src/apps/pages/programs/games.py",title="Games",icon=":material/casino:")
 studyPrograms = st.Page("src/apps/pages/programs/studyProgram.py", title="Study Programs", icon=":material/school:")
 
-# /apps/pages/adminTools
-developers = st.Page("src/apps/pages/adminTools/developers.py", title="Developers", icon=":material/people:")
-packageUsed = st.Page("src/apps/pages/adminTools/packageUsed.py", title="Package Used", icon=":material/extension:")
-
-# /apps/pages/superAdminControls
-userData = st.Page("src/apps/pages/superAdminControls/userData.py", title="Users Data", icon=":material/data_usage:")
-
 def application():
   if st.user and not st.user.is_logged_in:
     pages = {
@@ -45,12 +38,5 @@ def application():
       "Models": [chatBotModels, healthCareModels, objectDetectionModels, recommendationModels],
       "Programs": [apiPrograms, games, imagePrograms, simplePrograms, studyPrograms],
     }
-    user = st.session_state['user'].split(',')
-    if user[4] == "Admin" or user[4] == "Super Admin":
-      pages["Admin Tools"] = [developers, packageUsed]
-    
-    if user[4] == "Super Admin":
-      pages["Super Admin Controls"] = [userData]
-    return st.navigation(pages)
 
   return st.navigation({"": [home, youtubePlaylist], "Account": [auth_page]})
