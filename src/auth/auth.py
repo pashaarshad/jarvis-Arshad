@@ -20,7 +20,7 @@ def auth():
   else:
     st.title(f"🙏 {GreetUser(st.user.given_name)}")
     st.success("Welcome to Jarvis AI Assistant!", icon="🤝")
-    st.image(st.user.picture, caption=st.user.name, use_container_width=100)
+    st.image(st.user.picture, caption=st.user.name)
     st.write("Email:", st.user.email)
 
     if st.button("Log out"):
