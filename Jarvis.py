@@ -7,24 +7,26 @@ auth_page = st.Page("src/auth/auth.py", title="Authentication", icon=":material/
 home = st.Page("src/apps/public/home.py", title="Home", icon=":material/home:")
 youtubePlaylist = st.Page("src/apps/public/youtubePlaylist.py", title="Jarvis Videos", icon=":material/ondemand_video:")
 
-# /apps/pages/automations
-coding = st.Page("src/apps/pages/automations/coding.py", title="Coding Platforms", icon=":material/code:")
-websites = st.Page("src/apps/pages/automations/website.py", title="Websites", icon=":material/web:")
-socialMediaApps = st.Page("src/apps/pages/automations/socialMediaApps.py", title="Social Media Apps", icon=":material/share:")
-messenger = st.Page("src/apps/pages/automations/messenger.py", title="Messenger", icon=":material/email:")
+MAIN_DIR = 'src/apps/pages'
 
-# /apps/pages/models
-chatBotModels = st.Page("src/apps/pages/models/chatBotModel.py", title="Chat Bot Models", icon=":material/smart_toy:")
-healthCareModels = st.Page("src/apps/pages/models/healthCareModel.py", title="Health Care Models", icon=":material/health_and_safety:")
-objectDetectionModels = st.Page("src/apps/pages/models/objectDetectionModel.py", title="Object Detection Models", icon=":material/camera_alt:")
-recommendationModels = st.Page("src/apps/pages/models/recommendationModel.py", title="Recommendation Models", icon=":material/recommend:")
+# /automations
+coding = st.Page(f"{MAIN_DIR}/automations/coding.py", title="Coding Platforms", icon=":material/code:")
+websites = st.Page(f"{MAIN_DIR}/automations/website.py", title="Websites", icon=":material/web:")
+socialMediaApps = st.Page(f"{MAIN_DIR}/automations/socialMediaApps.py", title="Social Media Apps", icon=":material/share:")
+messenger = st.Page(f"{MAIN_DIR}/automations/messenger.py", title="Messenger", icon=":material/email:")
 
-# /apps/pages/programs
-simplePrograms = st.Page("src/apps/pages/programs/simpleProgram.py", title="Simple Programs", icon=":material/emoji_objects:")
-apiPrograms = st.Page("src/apps/pages/programs/apiProgram.py", title="API Programs", icon=":material/api:")
-imagePrograms = st.Page("src/apps/pages/programs/imageProgram.py", title="Image Programs", icon=":material/image:")
-games = st.Page("src/apps/pages/programs/games.py",title="Games",icon=":material/casino:")
-studyPrograms = st.Page("src/apps/pages/programs/studyProgram.py", title="Study Programs", icon=":material/school:")
+# /models
+chatBotModels = st.Page(f"{MAIN_DIR}/models/chatBotModel.py", title="Chat Bot Models", icon=":material/smart_toy:")
+healthCareModels = st.Page(f"{MAIN_DIR}/models/healthCareModel.py", title="Health Care Models", icon=":material/health_and_safety:")
+objectDetectionModels = st.Page(f"{MAIN_DIR}/models/objectDetectionModel.py", title="Object Detection Models", icon=":material/camera_alt:")
+recommendationModels = st.Page(f"{MAIN_DIR}/models/recommendationModel.py", title="Recommendation Models", icon=":material/recommend:")
+
+# /programs
+simplePrograms = st.Page(f"{MAIN_DIR}/programs/simpleProgram.py", title="Simple Programs", icon=":material/emoji_objects:")
+apiPrograms = st.Page(f"{MAIN_DIR}/programs/apiProgram.py", title="API Programs", icon=":material/api:")
+imagePrograms = st.Page(f"{MAIN_DIR}/programs/imageProgram.py", title="Image Programs", icon=":material/image:")
+games = st.Page(f"{MAIN_DIR}/programs/games.py",title="Games",icon=":material/casino:")
+studyPrograms = st.Page(f"{MAIN_DIR}/programs/studyProgram.py", title="Study Programs", icon=":material/school:")
 
 def application():
   pages = {
