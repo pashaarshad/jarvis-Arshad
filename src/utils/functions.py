@@ -1,28 +1,10 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 import streamlit as st
 
 today = datetime.now()
 
-def logged_in():
-  from src.auth.login import login
-  userData, password, remember_me = login()
-
-  if userData != []:
-    from database.localStorageServer import server
-    conn = server()
-    user = [userData['username'], userData['email'], userData['first_name'], userData['last_name'], userData['role'], userData['gender'], userData['age'], userData['about']]
-
-    conn.setLocalStorageVal("user", user)
-    conn.setLocalStorageVal("password", password)
-    conn.setLocalStorageVal("expiration_date", (today + timedelta(days=(30 if remember_me else 1))).isoformat())
-    conn.setLocalStorageVal("verified", True)
-    st.info("Please refresh the page to continue", icon="ℹ️")
-    st.rerun()
-
 # /auth
-login_page = st.Page(logged_in, title="Log in", icon=":material/login:")
-logout_page = st.Page("src/auth/profile.py", title="My Profile", icon=":material/account_circle:")
-sign_up_page = st.Page("src/auth/signup.py", title="Sign up", icon=":material/person_add:")
+auth_page = st.Page("src/auth/auth.py", title="Authentication", icon=":material/lock_open:")
 
 # /apps/public
 home = st.Page("src/apps/public/home.py", title="Home", icon=":material/home:")
@@ -54,11 +36,11 @@ packageUsed = st.Page("src/apps/pages/adminTools/packageUsed.py", title="Package
 # /apps/pages/superAdminControls
 userData = st.Page("src/apps/pages/superAdminControls/userData.py", title="Users Data", icon=":material/data_usage:")
 
-def application(verified):
-  if verified == "true":
+def application():
+  if st.user and not st.user.is_logged_in:
     pages = {
       "": [home, youtubePlaylist],
-      "Account": [logout_page],
+      "Account": [auth_page],
       "Automations": [coding, websites, socialMediaApps, messenger],
       "Models": [chatBotModels, healthCareModels, objectDetectionModels, recommendationModels],
       "Programs": [apiPrograms, games, imagePrograms, simplePrograms, studyPrograms],
@@ -71,4 +53,4 @@ def application(verified):
       pages["Super Admin Controls"] = [userData]
     return st.navigation(pages)
 
-  return st.navigation({"": [home, youtubePlaylist], "Account": [login_page, sign_up_page]})
+  return st.navigation({"": [home, youtubePlaylist], "Account": [auth_page]})
