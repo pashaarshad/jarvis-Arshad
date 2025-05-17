@@ -1,7 +1,9 @@
 from datetime import datetime
+import pytz
 
 def GreetUser(name):
-  hour = datetime.now().hour
+  india_tz = pytz.timezone('Asia/Kolkata')
+  hour = datetime.now(india_tz).hour
   if 5 <= hour < 11:
     return f"Good Morning, {name}"
   elif 11 <= hour < 17:
