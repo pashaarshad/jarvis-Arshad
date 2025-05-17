@@ -2,10 +2,10 @@ from datetime import datetime
 
 def GreetUser(name):
   hour = datetime.now().hour
-  if(hour >= 6) and (hour < 11):
-    return ("Good Morning, "+ name)
-  elif(hour >= 11) and (hour < 17):
-    return ("Good Afternoon, "+ name)
-  elif(hour >= 17) and (hour < 19):
-    return ("Good Evening, "+name)
-  return ("Good Night, "+ name)
+  if 5 <= hour < 11:
+    return f"Good Morning, {name}"
+  elif 11 <= hour < 17:
+    return f"Good Afternoon, {name}"
+  elif 17 <= hour < 21:
+    return f"Good Evening, {name}"
+  return f"Good Night, {name}"
