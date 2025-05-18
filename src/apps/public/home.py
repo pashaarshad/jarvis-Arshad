@@ -3,12 +3,7 @@ import streamlit as st
 def home():
 	st.title("Welcome to Jarvis - Your Virtual AI Assistant!")
 	st.toast("Welcome to Jarvis!", icon="👋")
-	st.image('assets/image.gif', caption='Empower Your Digital Life with Jarvis', use_column_width=True)
-
-	st.markdown("""
-	## What is Jarvis?
-	**Jarvis** is a powerful Python-based AI assistant designed to streamline your daily tasks through simple voice commands. Whether you're navigating the web, managing your media, or automating routine processes, Jarvis is here to help.
-	""")
+	st.image('assets/image.gif', caption='Empower Your Digital Life with Jarvis', use_container_width=True)
 
 	st.markdown("""
 	## Key Features
@@ -28,7 +23,7 @@ def home():
 	Explore the capabilities of Jarvis by diving into the following resources:
 	- [Documentation](https://codingblogs.hashnode.dev/) - Comprehensive guides on setting up and using Jarvis.
 	- [Community Forums](https://discord.gg/tSqtvHUJzE) - Join discussions with other Jarvis users.
-	- [GitHub Repository](https://github.com/Avdhesh-Varshney/Jarvis) - Contribute to the development or get the latest version.
+	- [GitHub Repository](https://github.com/Code-A2Z/Jarvis) - Contribute to the development or get the latest version.
 	- [YouTube Playlist](https://www.youtube.com/playlist?list=PLPUts_2rBVRVTrLlcB54Hwi6Ws51UWLXU) - Watch tutorials and feature demonstrations.
 	""")
 
