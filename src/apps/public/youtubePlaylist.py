@@ -34,11 +34,15 @@ def youtubePlaylistVideos(API_KEY):
 	return videos
 
 def displayVideos(videos):
-	for i in range(0, len(videos), 2):
+	filtered_videos = [
+		video for video in videos
+		if video['snippet'].get('title', '').lower() != 'private video'
+	]
+	for i in range(0, len(filtered_videos), 2):
 		cols = st.columns(2)
 		for j in range(2):
-			if i + j < len(videos):
-				video = videos[i + j]
+			if i + j < len(filtered_videos):
+				video = filtered_videos[i + j]
 				video_title = video['snippet']['title'].split('|')[0].strip()
 				video_url = f"https://www.youtube.com/watch?v={video['snippet']['resourceId']['videoId']}"
 				with cols[j]:
