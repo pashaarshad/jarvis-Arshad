@@ -3,10 +3,32 @@ secrets.toml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
 
 # Virtual environment
-myenv
-/myenv
+myenv/
+/myenv/
+venv/
+env/
+.env/
+.venv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
 
 # Deployed Model files
 *.keras
@@ -19,3 +41,8 @@ myenv
 *.caffemodel
 *.pt
 *.log
+
+# Large binary files
+*.so.*
+tensorflow/
+pyarrow/
